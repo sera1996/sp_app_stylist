@@ -10,6 +10,15 @@ import {
 import { Container, Header, View, DeckSwiper, 
     Card, CardItem, Thumbnail, Text, 
     Left, Body, Icon } from 'native-base';
+import {createStore,applyMiddleware} from 'redux';
+import {Provider,connect} from 'react-redux';
+import thunk from 'redux-thunk';
+import _ from 'lodash';
+import {readEvents} from '../../actions';
+import reducer from '../../reducers';
+import axios from 'axios'
+const store = createStore(reducer,applyMiddleware(thunk))
+
 const Pics =[
   {id:'1',uri: require('../../assets/biyoushi3.jpg')},
   {id:'2',uri: require('../../assets/biyoushi2.jpg')},
@@ -24,10 +33,13 @@ class Profile extends Component {
             items:[]
         }
     }
+    componentDidMount(){
+        this.props.readEvents()
+    }
     fetchRepositories(){
         fetch('http://127.0.0.1:8000/api.stylist.v1/home/')
         .then(response => response.json())
-        .then(response=> console.log(response[0].menus));
+        .then(response=> console.log(response[0]));
     }
     navigateToReview(){
         this.props.navigation.navigate('Review');
@@ -37,7 +49,7 @@ class Profile extends Component {
     }
     checkLine(num){
         this.setState({menuNum:num});
-        console.log(this.state.menuNum);
+        //console.log(this.state.menuNum);
         this.menuContent(num);
     }
     backToHome(){
@@ -188,7 +200,7 @@ class Profile extends Component {
                 </View>
                 <View>
                 <TouchableOpacity style={styles.buttonStyle1}
-                onPress={()=>this.fetchRepositories()}>
+                onPress={()=>console.log(this.props.events)}>
                     <Text 
                     style={styles.textStyle}>
                         fetch
@@ -221,7 +233,9 @@ class Profile extends Component {
         );
     }
 }
-export default Profile;
+const mapStateToProps = state => ({events:state.events});
+const mapDispatchToProps = ({readEvents});
+export default connect(mapStateToProps,mapDispatchToProps)(Profile);
 
 const styles = StyleSheet.create({
     container: {

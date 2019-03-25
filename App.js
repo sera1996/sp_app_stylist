@@ -21,6 +21,7 @@ import Taric from './screens/Taric'
 import HomeIndex from './screens/Home/HomeIndex';
 import Profile from './screens/Home/Profile';
 import Calendars from './screens/Home/Calendars'
+import ProfileContainer from './screens/Home/ProfileContainer';
 /*
 export default class App extends Component{
   render() {
@@ -32,8 +33,8 @@ export default class App extends Component{
 */
 
 const Tab = createBottomTabNavigator({
-  Profile:{
-    screen:Profile,
+  ProfileConatiner:{
+    screen:ProfileContainer,
     navigationOptions:{
        tabBarIcon:({tintColor})=>(
         <Icon name="ios-home" style={{fontSize:24,color:'white'}} />
