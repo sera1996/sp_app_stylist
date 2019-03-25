@@ -7,9 +7,11 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 import {createStackNavigator,createAppContainer,
 createBottomTabNavigator} from 'react-navigation';
+import { Container, Header, View, DeckSwiper, Card, 
+    CardItem, Thumbnail, Text, Left, Body, Icon } from 'native-base';
 import Home from './screens/Home/Home';
 import Favorite from './screens/Favorite/Favorite';
 import History from './screens/History/History';
@@ -29,18 +31,49 @@ export default class App extends Component{
 
 const Tab = createBottomTabNavigator({
   Home:{
-    screen:HomeIndex
+    screen:HomeIndex,
+    navigationOptions:{
+       tabBarIcon:({tintColor})=>(
+        <Icon name="ios-home" style={{fontSize:24,color:'white'}} />
+       )
+     }
   },
   Favorite:{
-    screen:Favorite
+    screen:Favorite,
+    navigationOptions:{
+      tabBarIcon:({tintColor})=>(
+        <Icon name='ios-bookmark' style={{fontSize:24,color:'white'}}/>
+      )
+    }
   },
   History:{
-    screen:History
+    screen:History,
+    navigationOptions:{
+      tabBarIcon:({tintColor})=>(
+        <Icon name='ios-cut' style={{fontSize:24,color:'white'}}/>
+      )
+    }
   },
   MyPage:{
-    screen:MyPage
+    screen:MyPage,
+    navigationOptions:{
+      tabBarIcon:({tintColor})=>(
+        <Icon name='ios-contact' style={{fontSize:24,color:'white'}}/>
+      )
+    }
   }
-});
+},{
+   tabBarOptions:{
+    activeTintColor:
+      'black',
+    inactiveTintColor:
+    'white',
+     style:{
+       backgroundColor:'#fd7166',
+     },
+      showLabel:false
+   }
+ });
 const App = createAppContainer(Tab);
 export default App;
 /*

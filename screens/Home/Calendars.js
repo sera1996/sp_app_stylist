@@ -71,6 +71,14 @@ class Calendars extends Component {
                         <Callabel day="6"/>
                         <Calcomp label1="9~12" label2="12~15" label3="15~18" label4="18~21"/>
                     </View>
+                    <View style={{flexDirection:'row',marginTop:10}}>
+                        <Callabel day="7"/>
+                        <Calcomp label1="9~12" label2="12~15" label3="15~18" label4="18~21"/>
+                    </View>
+                    <View style={{flexDirection:'row',marginTop:10}}>
+                        <Callabel day="8"/>
+                        <Calcomp label1="9~12" label2="12~15" label3="15~18" label4="18~21"/>
+                    </View>
                 </View>
         </Container>
         );

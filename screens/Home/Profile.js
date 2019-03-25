@@ -172,10 +172,10 @@ class Profile extends Component {
                 </Text>
             </View>
                 <View style={{flexDirection:'row',marginTop:20}}>
-                <TouchableOpacity style={styles.buttonStyle1}>
+                <TouchableOpacity style={styles.buttonStyle1}
+                onPress={()=>this.navigateToCalendar()}>
                     <Text 
-                    style={styles.textStyle}
-                    onPress={()=>this.navigateToCalendar()}>
+                    style={styles.textStyle}>
                         ビデオコール
                     </Text>
                 </TouchableOpacity>

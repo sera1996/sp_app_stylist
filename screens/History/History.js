@@ -15,7 +15,7 @@ class History extends Component {
     render() {
         return (
             <View>
-                <View style={{backgroundColor:'#ed5270',height:85}}></View>
+                <View style={{backgroundColor:'#fd7166',height:85}}></View>
                 <View style={{backgroundColor:'white',height:800}}>
                     <View style={{flexDirection:'row'}}>
                 <Text style={styles.rireki}>施術履歴</Text>

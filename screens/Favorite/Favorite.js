@@ -20,7 +20,7 @@ class Favorite extends Component {
     render() {
         return (
             <View>
-                <View style={{backgroundColor:'#ed5270',height:85}}></View>
+                <View style={{backgroundColor:'#fd7166',height:85}}></View>
                 <View style={{flexDirection:'row'}}>
                 <Text style={styles.rireki}>お気に入り</Text>
                 <TouchableOpacity>
