@@ -20,8 +20,14 @@ class Profile extends Component {
     constructor(props){
         super(props);
         this.state={
-            menuNum:2
+            menuNum:2,
+            items:[]
         }
+    }
+    fetchRepositories(){
+        fetch('http://127.0.0.1:8000/api.stylist.v1/home/')
+        .then(response => response.json())
+        .then(response=> console.log(response[0].menus));
     }
     navigateToReview(){
         this.props.navigation.navigate('Review');
@@ -113,7 +119,7 @@ class Profile extends Component {
         }
     }
     render() {
-    const{navigation:{state:{params:{press}}}}=this.props;
+    //const{navigation:{state:{params:{press}}}}=this.props;
 
         return (
             <Container>
@@ -179,9 +185,16 @@ class Profile extends Component {
                         ビデオコール
                     </Text>
                 </TouchableOpacity>
-
                 </View>
-                
+                <View>
+                <TouchableOpacity style={styles.buttonStyle1}
+                onPress={()=>this.fetchRepositories()}>
+                    <Text 
+                    style={styles.textStyle}>
+                        fetch
+                    </Text>
+                </TouchableOpacity>
+                </View>
                 <View style={{flexDirection:'row',marginTop:20}}>
                     <TouchableOpacity style={{flex:1}} onPress={()=>this.checkLine(1)}>
                         <Text style={{textAlign:'center',fontSize:16}}>店舗情報</Text>

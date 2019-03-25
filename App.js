@@ -19,6 +19,8 @@ import MyPage from './screens/MyPage/MyPage';
 import Gnar from './screens/Gnar'
 import Taric from './screens/Taric'
 import HomeIndex from './screens/Home/HomeIndex';
+import Profile from './screens/Home/Profile';
+import Calendars from './screens/Home/Calendars'
 /*
 export default class App extends Component{
   render() {
@@ -30,29 +32,21 @@ export default class App extends Component{
 */
 
 const Tab = createBottomTabNavigator({
-  Home:{
-    screen:HomeIndex,
+  Profile:{
+    screen:Profile,
     navigationOptions:{
        tabBarIcon:({tintColor})=>(
         <Icon name="ios-home" style={{fontSize:24,color:'white'}} />
        )
      }
   },
-  Favorite:{
-    screen:Favorite,
+  Calendars:{
+    screen:Calendars,
     navigationOptions:{
-      tabBarIcon:({tintColor})=>(
-        <Icon name='ios-bookmark' style={{fontSize:24,color:'white'}}/>
-      )
-    }
-  },
-  History:{
-    screen:History,
-    navigationOptions:{
-      tabBarIcon:({tintColor})=>(
-        <Icon name='ios-cut' style={{fontSize:24,color:'white'}}/>
-      )
-    }
+       tabBarIcon:({tintColor})=>(
+        <Icon name="ios-home" style={{fontSize:24,color:'white'}} />
+       )
+     }
   },
   MyPage:{
     screen:MyPage,
