@@ -8,6 +8,17 @@ import {
 
 import {createStackNavigator,
         createAppContainer} from 'react-navigation';
+import {
+    createStore,
+    applyMiddleware,
+    combineReducers
+} from 'redux'
+import{
+    createReduxContainer,
+    createReactNavigationReduxMiddleware,
+    createNavigationReducer
+} from 'react-navigation-redux-helpers'
+import {Provider,connect} from 'react-redux'
 import Home from './Home';
 import Profile from './Profile';
 import Calendars from './Calendars';

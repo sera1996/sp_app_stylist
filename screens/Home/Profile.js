@@ -33,6 +33,9 @@ class Profile extends Component {
             items:[]
         }
     }
+    fetch(){
+        console.log(this.props.events);
+    }
     componentDidMount(){
         this.props.readEvents()
     }
@@ -200,7 +203,7 @@ class Profile extends Component {
                 </View>
                 <View>
                 <TouchableOpacity style={styles.buttonStyle1}
-                onPress={()=>console.log(this.props.events)}>
+                onPress={()=>this.fetch()}>
                     <Text 
                     style={styles.textStyle}>
                         fetch
@@ -236,7 +239,7 @@ class Profile extends Component {
 const mapStateToProps = state => ({events:state.events});
 const mapDispatchToProps = ({readEvents});
 export default connect(mapStateToProps,mapDispatchToProps)(Profile);
-
+//export default Profile;
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
