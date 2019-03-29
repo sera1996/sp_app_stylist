@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Container, Header, View, DeckSwiper, 
     Card, CardItem, Thumbnail, Text, 
-    Left, Body, Icon } from 'native-base';
+    Left, Body, Icon,Drawer,Button,Title,Right,InputGroup, Input } from 'native-base';
 import {createStore,applyMiddleware} from 'redux';
 import {Provider,connect} from 'react-redux';
 import thunk from 'redux-thunk';
@@ -17,6 +17,8 @@ import _ from 'lodash';
 import {readEvents} from '../../actions';
 import reducer from '../../reducers';
 import axios from 'axios'
+import SideBar from './SideBar';
+
 const store = createStore(reducer,applyMiddleware(thunk))
 
 const Pics =[
@@ -32,6 +34,13 @@ class Profile extends Component {
             menuNum:2,
             items:[]
         }
+    }
+    closeDrawer = () => {
+        this._drawer._root.close();
+    }
+    openDrawer = () => {
+        //alert('open');
+        this._drawer._root.open();
     }
     fetch(){
         console.log(this.props.events);
@@ -137,13 +146,30 @@ class Profile extends Component {
     //const{navigation:{state:{params:{press}}}}=this.props;
 
         return (
+            <Drawer 
+                ref={(ref)=>{this._drawer=ref;}}
+                        content={<SideBar/>}>
             <Container>
                 <Header style={{backgroundColor:'#fd7166'}}>
-                    <Left>
-                    <TouchableOpacity onPress={()=>this.backToHome()}>
-                        <Text>Back</Text>
-                    </TouchableOpacity>
-                    </Left>
+                    
+                        <Left>
+                        <Button transparent onPress={this.openDrawer.bind(this)}>
+                            <Icon style={styles.icon} name='list' />
+                        </Button> 
+                        </Left>
+                        <InputGroup borderType= 'underline'style={{marginTop:5,backgroundColor:'#fff',width:180,height:25}}>
+                            <Icon name="ios-search" style={{color:'#fd7166'}}/>
+                            <Input style={{color: '#00c497'}} placeholder="お悩みタグ"/>
+                        </InputGroup> 
+                    
+
+                    {/*
+                    <Right>
+                        <Button transparent onPress={this.openDrawer.bind(this)}>
+                            <Icon style={styles.icon} name='list' />
+                        </Button>  
+                    </Right>
+                    */}
                 </Header>
             <ScrollView>
             <View>
@@ -233,6 +259,7 @@ class Profile extends Component {
             </View>
             </ScrollView>
             </Container>
+            </Drawer>
         );
     }
 }
@@ -311,5 +338,9 @@ const styles = StyleSheet.create({
         shadowColor:"black",
         shadowOffset:{height:2},
         shadowOpacity:0.3,
+    },
+    icon:{
+        color:'#fff',
+        fontSize:40,
     }
 });
