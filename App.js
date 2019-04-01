@@ -22,6 +22,7 @@ import HomeIndex from './screens/Home/HomeIndex';
 import Profile from './screens/Home/Profile';
 import Calendars from './screens/Home/Calendars'
 import ProfileContainer from './screens/Home/ProfileContainer';
+import Schedule from './screens/Home/Schedule';
 /*
 export default class App extends Component{
   render() {
@@ -38,6 +39,14 @@ const Tab = createBottomTabNavigator({
     navigationOptions:{
        tabBarIcon:({tintColor})=>(
         <Icon name="ios-home" style={{fontSize:24,color:'white'}} />
+       )
+     }
+  },
+  Schedule:{
+    screen:Schedule,
+    navigationOptions:{
+       tabBarIcon:({tintColor})=>(
+        <Icon name="calendar" style={{fontSize:24,color:'white'}} />
        )
      }
   },
