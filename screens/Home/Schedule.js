@@ -4,8 +4,10 @@ import {
     Text,
     StyleSheet,
     TouchableOpacity,
-    Image
+    Image,
+    ScrollView
 } from "react-native";
+import Reservecomp from './component/Reservecomp';
 const Pics =[
   {id:'1',uri: require('../../assets/biyoushi3.jpg')},
   {id:'2',uri: require('../../assets/biyoushi2.jpg')},
@@ -14,65 +16,32 @@ const Pics =[
 class Schedule extends Component {
     render() {
         return (
+            
             <View>
                 <View style={{backgroundColor:'#fd7166',height:85}}></View>
+                <ScrollView>
                 <View style={{backgroundColor:'white',height:800}}>
                     <View style={{flexDirection:'row'}}>
-                <Text style={styles.rireki}>施術履歴</Text>
+                <Text style={styles.rireki}>予約確認</Text>
                 <TouchableOpacity>
-                <Text style={{textDecorationLine:'underline',marginTop:20,marginRight:20}}>並び替え:</Text>
+                <Text style={{textDecorationLine:'underline',marginTop:20,marginRight:20}}>今日:</Text>
                 </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={styles.profileStyle}>
-                    <Image
-                        style={{margintTop:5,marginBottom:5,marginLeft:5,width:80,height:80,borderRadius:40}}
-                        source = {Pics[0].uri}/>
-                    <View>
-                    <Text style={{marginLeft:20,marginTop:10}}>望月　優</Text>
-                    <Text style={{marginLeft:20,marginTop:5,fontSize:8}}>スタイリスト</Text>
-                    <Text style={{marginLeft:20,marginTop:5,fontSize:12,color:'#fd7166'}}>¥5000</Text>
-                    <Text style={{marginLeft:20,marginTop:5,fontSize:12}}>神奈川県横浜市</Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.profileStyle}>
-                    <Image
-                        style={{margintTop:5,marginBottom:5,marginLeft:5,width:80,height:80,borderRadius:40}}
-                        source = {Pics[1].uri}/>
-                    <View>
-                    <Text style={{marginLeft:20,marginTop:10}}>望月　優</Text>
-                    <Text style={{marginLeft:20,marginTop:5,fontSize:8}}>スタイリスト</Text>
-                    <Text style={{marginLeft:20,marginTop:5,fontSize:12,color:'#fd7166'}}>¥5000</Text>
-                    <Text style={{marginLeft:20,marginTop:5,fontSize:12}}>神奈川県横浜市</Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.profileStyle}>
-                    <Image
-                        style={{margintTop:5,marginBottom:5,marginLeft:5,width:80,height:80,borderRadius:40}}
-                        source = {Pics[2].uri}/>
-                    <View>
-                    <Text style={{marginLeft:20,marginTop:10}}>望月　優</Text>
-                    <Text style={{marginLeft:20,marginTop:5,fontSize:8}}>スタイリスト</Text>
-                    <Text style={{marginLeft:20,marginTop:5,fontSize:12,color:'#fd7166'}}>¥5000</Text>
-                    <Text style={{marginLeft:20,marginTop:5,fontSize:12}}>神奈川県横浜市</Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.profileStyle}>
-                    <Image
-                        style={{margintTop:5,marginBottom:5,marginLeft:5,width:80,height:80,borderRadius:40}}
-                        source = {Pics[0].uri}/>
-                    <View>
-                    <Text style={{marginLeft:20,marginTop:10}}>望月　優</Text>
-                    <Text style={{marginLeft:20,marginTop:5,fontSize:8}}>スタイリスト</Text>
-                    <Text style={{marginLeft:20,marginTop:5,fontSize:12,color:'#fd7166'}}>¥5000</Text>
-                    <Text style={{marginLeft:20,marginTop:5,fontSize:12}}>神奈川県横浜市</Text>
-                    </View>
-                </TouchableOpacity>
-                
+                <Reservecomp time='12:00'name='上原　光陽' menu='パンチパーマ' price='3000'/>
+                <Reservecomp time='13:00 'name='河野　雪' menu='カラー' price='3000'/>
+                <Reservecomp time='14:00' name='高橋　バルヴォッサ' menu='ちょんまげ' price='3000'/>
+                <Reservecomp time= '15:00'name='Roman Nasuti' menu='カット' price='3000'/>
+ 
+                {/*
                 <TouchableOpacity onPress={()=>this.navigateToProfile(Pics[0])}>
                 <Text>Favorite</Text>
                 </TouchableOpacity>
+                */}
+                
                 </View>
+                </ScrollView>
             </View>
+            
         );
     }
 }
