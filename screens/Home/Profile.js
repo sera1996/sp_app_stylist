@@ -31,7 +31,7 @@ class Profile extends Component {
     constructor(props){
         super(props);
         this.state={
-            menuNum:2,
+            menuNum:4,
             items:[]
         }
     }
@@ -68,7 +68,14 @@ class Profile extends Component {
         this.props.navigation.navigate('Home');
     }
     menuContent(num){
-        if(num==2){
+        if(num==1){
+            return(
+                <View>
+                <Text style={{textAlign:'center'}}>神奈川県藤沢市遠藤3607-8ベルツリーsfc207</Text>
+                </View>
+            );
+        }
+        else if(num==2){
             return(
                 <View>
                     <TouchableOpacity style = {{borderBottomWidth:0.3,marginLeft:50,marginRight:50}}>
@@ -85,13 +92,6 @@ class Profile extends Component {
                     <TouchableOpacity style = {{marginTop:10,height:30,borderBottomWidth:0.3,marginLeft:50,marginRight:50}}>
                         <Text style={{textAlign:'center'}}>ダメージケア  ¥5000 ></Text>
                     </TouchableOpacity>
-                </View>
-            );
-        }
-        else if(num==1){
-            return(
-                <View>
-                <Text style={{textAlign:'center'}}>神奈川県藤沢市遠藤3607-8ベルツリーsfc207</Text>
                 </View>
             );
         }
@@ -136,6 +136,28 @@ class Profile extends Component {
                 </View>
             );
         }
+        else if(num==4){
+            return(
+                <View>
+                    <Text note style={{marginLeft:20,marginTop:20,fontSize:16}}>プロフィールの一言</Text>
+                        <View style={{flexDirection:'row',marginLeft:20}}>
+                        <Text style={{flex:3,paddingLeft:20,marginTop:15}}>
+                        お客様のライフスタイルに合わせた１番に会うを提案します。
+                        希望の髪型、髪の毛のケア、セットの仕方、やりたいように出来ないなど何でも言ってください。
+                        </Text>
+                        <Text style={{flex:1,paddingLeft:10,marginTop:10,fontWeight:'bold',color:'#fd7166'}}>
+                            編集
+                        </Text>
+                        </View>
+                    <Text note style={{marginLeft:20,marginTop:20,fontSize:16}}>お悩み解決スキル</Text>
+                        <View style={{paddingLeft:20,marginTop:15}}>
+                            <Text style={{paddingLeft:20}}>
+                                パサつき
+                            </Text>
+                        </View>
+                </View>
+            );
+        }
         else{
             <View>
                 <Text>no num selected</Text>
@@ -149,44 +171,13 @@ class Profile extends Component {
             <Drawer 
                 ref={(ref)=>{this._drawer=ref;}}
                         content={<SideBar/>}>
-            <Container>
-                <Header style={{backgroundColor:'#fd7166'}}>
-                    
-                        <Left>
-                        <Button transparent onPress={this.openDrawer.bind(this)}>
-                            <Icon style={styles.icon} name='list' />
-                        </Button> 
-                        </Left>
-                        <InputGroup borderType= 'underline'style={{marginTop:5,backgroundColor:'#fff',width:180,height:25}}>
-                            <Icon name="ios-search" style={{color:'#fd7166'}}/>
-                            <Input style={{color: '#00c497'}} placeholder="お悩みタグ"/>
-                        </InputGroup> 
-                    
-
-                    {/*
-                    <Right>
-                        <Button transparent onPress={this.openDrawer.bind(this)}>
-                            <Icon style={styles.icon} name='list' />
-                        </Button>  
-                    </Right>
-                    */}
-                </Header>
+            <Container style={{marginTop:70}}>
+                <View>
+                    <Title>マイページ</Title>
+                </View>
             <ScrollView>
             <View>
-                <View style={{flexDirection:'row',height:150}}>
-                    {/*
-                    <View style={{flex:1}}>
-                        <TouchableOpacity onPress={()=>this.backToHome()}>
-                        <Text style={{marginTop:50,marginLeft:20,fontSize:20,textDecorationLine:'underline'}}>Back</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                        <Text style={{marginTop:30,alignContent:'center',fontSize:22,textAlign:'center'}}>
-                        
-                        </Text>
-                        <Text style={{textAlign:'center',fontSize:12,textDecorationLine:'underline'}}></Text>
-                        </TouchableOpacity >
-                    </View>
-                    */}
+                <View style={{flexDirection:'row',height:150,marginTop:30}}>
                     <View style={{shadowColor: '#000',
                         shadowOffset: { width: 0, height: 2 },
                         shadowOpacity: 0.4,
@@ -203,21 +194,27 @@ class Profile extends Component {
                     </TouchableOpacity>
                 </View>
             <View>
-                <View style={{flexDirection:'row'}}>
-                    <Text style={{flex:1,textAlign:'center'}}>____</Text>
-                    <Text style={{flex:1,textAlign:'center',fontSize:14}}>@teraokayum</Text>
-                    <Text style={{flex:1,textAlign:'center'}}>____</Text>
+                <View>
+                    <Text　style={{flex:1,textAlign:'center',fontSize:24,fontWeight:'bold'}}>
+                        寺岡悠馬
+                    </Text>
+                    <Text note style={{flex:1,textAlign:'center',fontSize:14}}>@teraokayum</Text>
                 </View>
+                {/*
                 <View style={{flexDirection:'row'}}>
                     <Text note style={{flex:1,textAlign:'center'}}>神奈川県横浜市</Text>
                 </View>
                 <View style={{flexDirection:'row'}}>
                     <Text note style={{flex:1,textAlign:'center'}}>キャリア:4年</Text>
                 </View>
+                */}
+                {/*
                 <Text style={{marginTop:20,marginLeft:30,marginRight:30}}>お客様のライフスタイルに合わせた１番に会うを提案します。
                     希望の髪型、髪の毛のケア、セットの仕方、やりたいように出来ないなど何でも言ってください。
                 </Text>
+                */}
             </View>
+            {/*
                 <View style={{flexDirection:'row',marginTop:20}}>
                 <TouchableOpacity style={styles.buttonStyle1}
                 onPress={()=>this.navigateToCalendar()}>
@@ -236,25 +233,42 @@ class Profile extends Component {
                     </Text>
                 </TouchableOpacity>
                 </View>
-                <View style={{flexDirection:'row',marginTop:20}}>
-                    <TouchableOpacity style={{flex:1}} onPress={()=>this.checkLine(1)}>
+                */}
+                <ScrollView horizontal='true'style={{flexDirection:'row',marginTop:50}}>
+                    <TouchableOpacity style={styles.scrollMenu} onPress={()=>this.checkLine(4)}>
+                        <Text style={{textAlign:'center',fontSize:16}}>詳細</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.scrollMenu} onPress={()=>this.checkLine(1)}>
                         <Text style={{textAlign:'center',fontSize:16}}>店舗情報</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{flex:1}} onPress={()=>this.checkLine(2)}>
+                    <TouchableOpacity style={styles.scrollMenu} onPress={()=>this.checkLine(2)}>
                         <Text style={{textAlign:'center',fontSize:16}}>メニュー</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{flex:1}} onPress={()=>this.checkLine(3)}>
+                    <TouchableOpacity style={styles.scrollMenu} onPress={()=>this.checkLine(3)}>
                         <Text style={{textAlign:'center',fontSize:16}}>レビュー</Text>
                     </TouchableOpacity>
-                </View>
+                </ScrollView>
+                {/*
+                <ScrollView style={{flex:1}}horizontal='true'>
+                    <Text style={styles.scrollMenu}>AAA</Text>
+                    <Text style={styles.scrollMenu}>BBB</Text>
+                    <Text style={styles.scrollMenu}>CCC</Text>
+
+                </ScrollView>
+                */}
+                {/*
                 <View style={{height:30,backgroundColor:'#fd7166',shadowColor:"black",
         shadowOffset:{height:2},
         shadowOpacity:0.3}}>
                 <Text style={{textAlign:'center',color:'white'}}>_________</Text>
                 </View>
+                */}
 
-                <View style={{height:400,backgroundColor:'#f2f2f2'}}>
+                <View>
                     {this.menuContent(this.state.menuNum)}
+                </View>
+                <View>
+                    <Text note style={{textAlign:'center'}}>_____________________________________________________</Text>
                 </View>
             </View>
             </ScrollView>
@@ -271,6 +285,10 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    scrollMenu:{
+        marginLeft:30,
+        marginRight:30
     },
     buttonStyle1:{
         flex:1,
