@@ -71,27 +71,62 @@ class Profile extends Component {
         if(num==1){
             return(
                 <View>
-                <Text style={{textAlign:'center'}}>神奈川県藤沢市遠藤3607-8ベルツリーsfc207</Text>
+                <Text note style={{marginTop:30,marginLeft:30}}>最寄駅</Text>
+                <InputGroup borderType= 'underline'style={{marginTop:15,backgroundColor:'#fff',width:300,height:25,marginLeft:20}}>
+                        <Icon name="subway" style={{color:'#fd7166'}}/>
+                        <Input placeholder="アドレスを入力してください"/>
+                </InputGroup>
+                <Text note style={{marginTop:50,marginLeft:30}}>店舗ロケーション</Text>
+                <InputGroup borderType= 'underline'style={{marginTop:15,backgroundColor:'#fff',width:300,height:25,marginLeft:20}}>
+                        <Icon name="send" style={{color:'#fd7166'}}/>
+                        <Input  placeholder="アドレスを入力してください"/>
+                </InputGroup>
+                <Text note style={{marginTop:30,marginLeft:30}}>店舗外観写真</Text>
+                <View style={{marginTop:10,marginLeft:30,width:80,height:80,backgroundColor:'#e6e6e6'}}>
+                    <TouchableOpacity style={{width:30,height:30,borderRadius:15,backgroundColor:'#848484',marginTop:25,marginLeft:25}}>
+                        <Text style={{textAlign:'center',color:'white',marginTop:3}}>+</Text>
+                    </TouchableOpacity>
+                </View>
                 </View>
             );
         }
         else if(num==2){
             return(
                 <View>
-                    <TouchableOpacity style = {{borderBottomWidth:0.3,marginLeft:50,marginRight:50}}>
-                        <View style={{marginTop:10,height:30}}>
-                        <Text style={{textAlign:'center'}}>前髪ヘアーカット ¥2000 ></Text>
+                    <View style = {{borderBottomWidth:0.3,marginLeft:50,marginRight:50}}>
+                        <View style={{flexDirection:'row',marginTop:30,height:30}}>
+                            <Text style={{flex:1,textAlign:'center'}}>前髪ヘアーカット</Text>
+                            <Text style={{flex:1,textAlign:'center'}}>¥3000</Text>
+                            <TouchableOpacity>
+                                <Text style={{fontWeight:'bold',color:'#fd7166',fontSize:34}}>-</Text>
+                            </TouchableOpacity>
                         </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity style = {{marginTop:10,height:30,borderBottomWidth:0.3,marginLeft:50,marginRight:50}}>
-                        <Text style={{textAlign:'center'}}>ハイトーンカラー ¥3000 ></Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{marginTop:10,borderBottomWidth:0.3,marginLeft:50,marginRight:50,height:30}}>
-                        <Text style={{textAlign:'center'}}>ダメージケア  ¥5000 ></Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style = {{marginTop:10,height:30,borderBottomWidth:0.3,marginLeft:50,marginRight:50}}>
-                        <Text style={{textAlign:'center'}}>ダメージケア  ¥5000 ></Text>
-                    </TouchableOpacity>
+                    </View>
+                    <View style = {{borderBottomWidth:0.3,marginLeft:50,marginRight:50}}>
+                        <View style={{flexDirection:'row',marginTop:30,height:30}}>
+                            <Text style={{flex:1,textAlign:'center'}}>ハイトーンカラー</Text>
+                            <Text style={{flex:1,textAlign:'center'}}>¥2000</Text>
+                            <TouchableOpacity>
+                                <Text style={{fontWeight:'bold',color:'#fd7166',fontSize:34}}>-</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <View style={{flexDirection:'row'}}>
+                    <View style={styles.addMenu}>
+                        <Text style={{paddingLeft:20,paddingTop:10}}>
+                            新規メニュー:
+                        </Text>
+                        <Text style={{paddingTop:10,paddingLeft:20}}>_______________</Text>
+                        <Text style={{paddingLeft:20,paddingTop:20}}>価格：</Text>
+                        <Text style={{paddingTop:10,paddingLeft:20}}>____________</Text>
+                    </View>
+                    <View>
+                        <TouchableOpacity>
+                                <Text style={{fontWeight:'bold',color:'#fd7166',fontSize:34,paddingTop:40,paddingLeft:30}}>+</Text>
+                        </TouchableOpacity>
+                    </View>
+                    </View>
+                    <Text note style={{paddingLeft:260,paddingTop:20}}>最大メニュー数3</Text>
                 </View>
             );
         }
@@ -115,7 +150,7 @@ class Profile extends Component {
                         </TouchableOpacity>
                     </View>
                 </View>
-                <TouchableOpacity style={styles.profileStyle}>
+                <TouchableOpacity style={styles.reviewStyle}>
 
                     <Text style={{marginTop:5,marginLeft:5}}>星野　リサ</Text>
                     <Text style={{marginTop:5,marginLeft:5,fontSize:11}}>
@@ -124,7 +159,7 @@ class Profile extends Component {
                         とても満足しました。
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.profileStyle}>
+                <TouchableOpacity style={styles.reviewStyle}>
 
                     <Text style={{marginTop:5,marginLeft:5}}>星野　リサ</Text>
                     <Text style={{marginTop:5,marginLeft:5,fontSize:11}}>
@@ -145,18 +180,99 @@ class Profile extends Component {
                         お客様のライフスタイルに合わせた１番に会うを提案します。
                         希望の髪型、髪の毛のケア、セットの仕方、やりたいように出来ないなど何でも言ってください。
                         </Text>
-                        <Text style={{flex:1,paddingLeft:10,marginTop:10,fontWeight:'bold',color:'#fd7166'}}>
+                        <TouchableOpacity style={{flex:1,paddingLeft:10,marginTop:10}}>
+                        <Text style={{textAlign:'center',fontWeight:'bold',color:'#fd7166'}}>
                             編集
                         </Text>
+                        </TouchableOpacity>
                         </View>
                     <Text note style={{marginLeft:20,marginTop:20,fontSize:16}}>お悩み解決スキル</Text>
-                        <View style={{paddingLeft:20,marginTop:15}}>
-                            <Text style={{paddingLeft:20}}>
+                            <View style={{flexDirection:'row'}}>
+                            <TouchableOpacity style={styles.profileStyle}>
+                            <Text style={{textAlign:'center',paddingLeft:10,paddingRight:10}}>
                                 パサつき
                             </Text>
-                        </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity>
+                            <Text style={{color:'#fd7166',fontWeight:'bold'}}>編集</Text>
+                            </TouchableOpacity>
+                            </View>
+                            <View>
+                    <Text note style={{textAlign:'center'}}>_____________________________________________________</Text>
+                </View>
                 </View>
             );
+        }
+        else if(num == 5){
+            return(
+                <View style={{marginTop:30}}>
+                    <View style={{flexDirection:'row'}}>
+                        <Text note style={{flex:1,textAlign:'center'}}>施術名</Text>
+                        <Text note style={{flex:1,textAlign:'center'}}>ビフォー</Text>
+                        <Text note style={{flex:1,textAlign:'center'}}>アフター</Text>
+                    </View>
+                    <View style={{flexDirection:'row'}}>
+                        <View style={{flex:1,marginLeft:25,marginRight:25}}>
+                        <Text style={{textAlign:'right',marginTop:10,color:'#fd7166',fontWeight:'bold'}}>編集</Text>
+                            <Text style={{textAlign:'center',backgroundColor:'#fd7166',color:'white',marginTop:10,paddingTop:5,
+                            paddingBottom:5,fontSize:12}}>ハイトーンカラー</Text>
+                        </View>
+                        <View style={{flex:1}}>
+                            <Image source={require('../../assets/photo2.jpg')} style={{width:90,height:90,marginTop:10}}/>
+                        </View>
+                        <View style={{flex:1}}>
+                            <Image source={require('../../assets/photo3.jpg')} style={{width:90,height:90,marginTop:10}}/>
+                        </View>
+                    </View>
+                    <View style={{flexDirection:'row'}}>
+                        <View style={{flex:1,marginLeft:25,marginRight:25}}>
+                        <Text style={{textAlign:'right',marginTop:10,color:'#fd7166',fontWeight:'bold'}}>編集</Text>
+                            <Text style={{textAlign:'center',backgroundColor:'#fd7166',color:'white',marginTop:10,paddingTop:5,
+                            paddingBottom:5,fontSize:12}}>前髪ヘアーカット</Text>
+                        </View>
+                        <View style={{flex:1}}>
+                            <Image source={require('../../assets/photo1.jpg')} style={{width:90,height:90,marginTop:10}}/>
+                        </View>
+                        <View style={{flex:1}}>
+                            <Image source={require('../../assets/photo4.jpg')} style={{width:90,height:90,marginTop:10}}/>
+                        </View>
+                    </View>
+                    <Text note style={{textAlign:'right',marginTop:90}}>最大写真枚数:3</Text>
+                </View>
+            );
+        }
+        else if(num==6){
+            return(
+                <View>
+                    <View style={{flexDirection:'row',marginTop:30}}>
+                        <View style={{flex:1,marginLeft:30}}>
+                            <Text note>Username</Text>
+                            <Text style={{marginTop:15}}>teraokayum</Text>
+                        </View>
+                        <View style={{flex:1}}>
+                            <Text style={{color:'#fd7166',textAlign:'right',marginRight:30}}>編集</Text> 
+                        </View>
+                    </View>
+                    <View style={{flexDirection:'row',marginTop:30}}>
+                        <View style={{flex:1,marginLeft:30}}>
+                            <Text note>Email</Text>
+                            <Text style={{marginTop:15}}>teraokayum@abenew.com</Text>
+                        </View>
+                        <View style={{flex:1}}>
+                            <Text style={{color:'#fd7166',textAlign:'right',marginRight:30}}>編集</Text> 
+                        </View>
+                    </View>
+                    <View style={{flexDirection:'row',marginTop:30}}>
+                        <View style={{flex:1,marginLeft:30}}>
+                            <Text note>スタイリスト歴</Text>
+                            <Text style={{marginTop:15}}>5年</Text>
+                        </View>
+                        <View style={{flex:1}}>
+                            <Text style={{color:'#fd7166',textAlign:'right',marginRight:30}}>編集</Text> 
+                        </View>
+                    </View>
+                </View>
+            )
         }
         else{
             <View>
@@ -171,10 +287,7 @@ class Profile extends Component {
             <Drawer 
                 ref={(ref)=>{this._drawer=ref;}}
                         content={<SideBar/>}>
-            <Container style={{marginTop:70}}>
-                <View>
-                    <Title>マイページ</Title>
-                </View>
+            <Container style={{marginTop:50}}>
             <ScrollView>
             <View>
                 <View style={{flexDirection:'row',height:150,marginTop:30}}>
@@ -198,77 +311,32 @@ class Profile extends Component {
                     <Text　style={{flex:1,textAlign:'center',fontSize:24,fontWeight:'bold'}}>
                         寺岡悠馬
                     </Text>
-                    <Text note style={{flex:1,textAlign:'center',fontSize:14}}>@teraokayum</Text>
+                    <Text note style={{marginTop:10,flex:1,textAlign:'center',fontSize:16}}>@teraokayum</Text>
                 </View>
-                {/*
-                <View style={{flexDirection:'row'}}>
-                    <Text note style={{flex:1,textAlign:'center'}}>神奈川県横浜市</Text>
-                </View>
-                <View style={{flexDirection:'row'}}>
-                    <Text note style={{flex:1,textAlign:'center'}}>キャリア:4年</Text>
-                </View>
-                */}
-                {/*
-                <Text style={{marginTop:20,marginLeft:30,marginRight:30}}>お客様のライフスタイルに合わせた１番に会うを提案します。
-                    希望の髪型、髪の毛のケア、セットの仕方、やりたいように出来ないなど何でも言ってください。
-                </Text>
-                */}
             </View>
-            {/*
-                <View style={{flexDirection:'row',marginTop:20}}>
-                <TouchableOpacity style={styles.buttonStyle1}
-                onPress={()=>this.navigateToCalendar()}>
-                    <Text 
-                    style={styles.textStyle}>
-                        ビデオコール
-                    </Text>
-                </TouchableOpacity>
-                </View>
-                <View>
-                <TouchableOpacity style={styles.buttonStyle1}
-                onPress={()=>this.fetch()}>
-                    <Text 
-                    style={styles.textStyle}>
-                        fetch
-                    </Text>
-                </TouchableOpacity>
-                </View>
-                */}
                 <ScrollView horizontal='true'style={{flexDirection:'row',marginTop:50}}>
                     <TouchableOpacity style={styles.scrollMenu} onPress={()=>this.checkLine(4)}>
                         <Text style={{textAlign:'center',fontSize:16}}>詳細</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.scrollMenu} onPress={()=>this.checkLine(1)}>
-                        <Text style={{textAlign:'center',fontSize:16}}>店舗情報</Text>
-                    </TouchableOpacity>
                     <TouchableOpacity style={styles.scrollMenu} onPress={()=>this.checkLine(2)}>
                         <Text style={{textAlign:'center',fontSize:16}}>メニュー</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.scrollMenu} onPress={()=>this.checkLine(1)}>
+                        <Text style={{textAlign:'center',fontSize:16}}>店舗情報</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.scrollMenu} onPress={()=>this.checkLine(3)}>
                         <Text style={{textAlign:'center',fontSize:16}}>レビュー</Text>
                     </TouchableOpacity>
+                    <TouchableOpacity style={styles.scrollMenu} onPress={()=>this.checkLine(5)}>
+                        <Text style={{textAlign:'center',fontSize:16}}>B/A写真</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.scrollMenu} onPress={()=>this.checkLine(6)}>
+                        <Text style={{textAlign:'center',fontSize:16}}>設定</Text>
+                    </TouchableOpacity>
                 </ScrollView>
-                {/*
-                <ScrollView style={{flex:1}}horizontal='true'>
-                    <Text style={styles.scrollMenu}>AAA</Text>
-                    <Text style={styles.scrollMenu}>BBB</Text>
-                    <Text style={styles.scrollMenu}>CCC</Text>
-
-                </ScrollView>
-                */}
-                {/*
-                <View style={{height:30,backgroundColor:'#fd7166',shadowColor:"black",
-        shadowOffset:{height:2},
-        shadowOpacity:0.3}}>
-                <Text style={{textAlign:'center',color:'white'}}>_________</Text>
-                </View>
-                */}
 
                 <View>
                     {this.menuContent(this.state.menuNum)}
-                </View>
-                <View>
-                    <Text note style={{textAlign:'center'}}>_____________________________________________________</Text>
                 </View>
             </View>
             </ScrollView>
@@ -287,8 +355,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     scrollMenu:{
-        marginLeft:30,
-        marginRight:30
+        marginLeft:20,
+        marginRight:20
     },
     buttonStyle1:{
         flex:1,
@@ -345,6 +413,33 @@ const styles = StyleSheet.create({
         shadowOpacity:0.3
     },
     profileStyle:{
+        marginTop:15,
+        marginLeft:40,
+        marginRight:200,
+        backgroundColor:'#fbfafa',
+        borderRadius:15,
+        height:25,
+        shadowColor:"black",
+        shadowOffset:{height:1},
+        shadowOpacity:0.3,
+        flexDirection:'row'
+    },
+    addMenu:{
+        marginTop:15,
+        marginLeft:80,
+        paddingRight:70,
+        backgroundColor:'#fbfafa',
+        borderRadius:35,
+        height:140,
+        shadowColor:"black",
+        shadowOffset:{height:1},
+        shadowOpacity:0.3,
+    },
+    icon:{
+        color:'#fff',
+        fontSize:40,
+    },
+    reviewStyle:{
         marginTop:30,
         marginLeft:60,
         marginRight:60,
@@ -356,9 +451,5 @@ const styles = StyleSheet.create({
         shadowColor:"black",
         shadowOffset:{height:2},
         shadowOpacity:0.3,
-    },
-    icon:{
-        color:'#fff',
-        fontSize:40,
     }
 });

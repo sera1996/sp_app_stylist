@@ -42,7 +42,7 @@ class Home extends Component {
                     <Thumbnail source={item.image} />
                     <Body>
                       <Text>{item.text}</Text>
-                      <Text note>@teraokayum</Text>
+                      <Text note style={{marginTop:10,fontSize:16}}>@teraokayum</Text>
                     </Body>
                   </Left>
                 </CardItem>
